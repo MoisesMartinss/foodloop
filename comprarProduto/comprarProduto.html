@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do alimento · FoodLoop</title>
+    <meta name="theme-color" content="#2f6f1f">
+    <link rel="icon" type="image/png" href="../fotos/favicon.png">
+    <link rel="stylesheet" href="../shared/style.css">
+    <link rel="stylesheet" href="comprarProduto.css">
+</head>
+<body>
+    <main class="page">
+        <div class="container" id="productRoot">
+            <a class="back-link" href="../paginaInicial/paginaInicial.html"><span data-icon="arrowLeft"></span>Voltar para a vitrine</a>
+
+            <div class="product-layout">
+                <div class="product-media">
+                    <img id="produtoImagem" src="../fotos/placeholder-produto.svg" alt="">
+                    <div class="media-badges" id="mediaBadges"></div>
+                </div>
+
+                <div class="product-panel">
+                    <div class="product-main card">
+                        <div class="badges" id="produtoBadges"></div>
+                        <h1 id="produtoNome">Carregando...</h1>
+                        <p class="brand-name">Marca: <strong id="produtoMarca">—</strong></p>
+
+                        <div class="price-row">
+                            <div>
+                                <span class="price-label" id="precoLabel">Preço</span>
+                                <div id="produtoPreco" class="price price-xl">R$ 0,00</div>
+                            </div>
+                        </div>
+
+                        <ul class="info-list">
+                            <li>
+                                <span class="ic"><span data-icon="pin"></span></span>
+                                <div><span class="k">Localização</span><span class="v"><span id="produtoCidade">—</span> - <span id="produtoEstado">—</span></span></div>
+                            </li>
+                            <li>
+                                <span class="ic"><span data-icon="truck"></span></span>
+                                <div><span class="k">Entrega</span><span class="v" id="produtoDelivery">—</span></div>
+                            </li>
+                            <li>
+                                <span class="ic"><span data-icon="calendar"></span></span>
+                                <div><span class="k">Validade</span><span class="v" id="produtoValidade">—</span></div>
+                            </li>
+                        </ul>
+
+                        <div class="buy-box" id="buyBox">
+                            <div class="qty-stepper" aria-label="Quantidade">
+                                <button type="button" id="qtyMinus" aria-label="Diminuir quantidade">−</button>
+                                <output id="qtyValue" aria-live="polite">1</output>
+                                <button type="button" id="qtyPlus" aria-label="Aumentar quantidade">+</button>
+                            </div>
+                            <button id="comprarButton" type="button" class="btn btn-primary btn-lg"><span data-icon="cart"></span><span class="txt">Adicionar ao carrinho</span></button>
+                        </div>
+                        <p class="own-note" id="ownNote" hidden><span data-icon="checkCircle"></span>Este anúncio é seu.</p>
+                    </div>
+
+                    <div class="seller-card card">
+                        <span class="avatar" id="sellerAvatar">?</span>
+                        <div class="seller-info">
+                            <span class="k">Anunciado por</span>
+                            <a id="vendedorLink" href="#">—</a>
+                            <span class="muted" id="sellerCity"></span>
+                        </div>
+                        <a class="btn btn-secondary btn-sm" id="messageLink" href="#"><span data-icon="message"></span><span class="txt">Mensagem</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <section class="related" id="relatedSection" hidden>
+                <h2>Você também pode gostar</h2>
+                <div class="product-grid" id="relatedGrid"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../shared/app.js"></script>
+    <script src="../shared/layout.js"></script>
+    <script src="comprarProduto.js"></script>
+</body>
+</html>

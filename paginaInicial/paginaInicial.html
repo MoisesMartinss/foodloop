@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar alimentos · FoodLoop</title>
+    <meta name="theme-color" content="#2f6f1f">
+    <link rel="icon" type="image/png" href="../fotos/favicon.png">
+    <link rel="stylesheet" href="../shared/style.css">
+    <link rel="stylesheet" href="paginaInicial.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <p class="hello" id="userGreeting">Olá!</p>
+                <h1>O que vamos salvar do desperdício hoje?</h1>
+                <form class="search" id="searchForm" role="search">
+                    <label for="nome" class="sr-only">Buscar alimento</label>
+                    <span data-icon="search"></span>
+                    <input type="search" id="nome" name="nome" placeholder="Buscar arroz, feijão, leite..." autocomplete="off">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </form>
+            </div>
+            <div class="hero-stats" aria-label="Resumo">
+                <div class="stat">
+                    <span class="stat-ic"><span data-icon="package"></span></span>
+                    <div><strong id="statTotal">0</strong><span>anúncios ativos</span></div>
+                </div>
+                <div class="stat">
+                    <span class="stat-ic amber"><span data-icon="heart"></span></span>
+                    <div><strong id="statDonations">0</strong><span>doações disponíveis</span></div>
+                </div>
+                <div class="stat">
+                    <span class="stat-ic red"><span data-icon="clock"></span></span>
+                    <div><strong id="statUrgent">0</strong><span>vencem em até 7 dias</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="page">
+        <div class="container catalog">
+            <aside class="filters" id="filters" aria-label="Filtros">
+                <div class="filters-head">
+                    <h2><span data-icon="filter"></span>Filtros</h2>
+                    <button type="button" class="btn btn-ghost btn-sm" id="clearFilters">Limpar</button>
+                    <button type="button" class="icon-btn close-filters" id="closeFilters" aria-label="Fechar filtros"><span data-icon="x"></span></button>
+                </div>
+
+                <form id="filtroForm">
+                    <div class="field">
+                        <label for="preco">Preço máximo</label>
+                        <div class="input-prefix">
+                            <span>R$</span>
+                            <input type="number" id="preco" name="preco" min="0" step="0.01" placeholder="Qualquer valor">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Ex.: Goiânia">
+                    </div>
+
+                    <div class="field">
+                        <label for="estado">Estado</label>
+                        <select id="estado" name="estado"></select>
+                    </div>
+
+                    <div class="field">
+                        <label for="delivery">Forma de entrega</label>
+                        <select id="delivery" name="delivery">
+                            <option value="">Todas</option>
+                            <option value="sim">Com entrega</option>
+                            <option value="não">Somente retirada</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="validade">Válido pelo menos até</label>
+                        <input type="date" id="validade" name="validade">
+                    </div>
+
+                    <div class="field">
+                        <label for="vendedor">Anunciante</label>
+                        <input type="text" id="vendedor" name="vendedor" placeholder="Nome da pessoa ou empresa">
+                    </div>
+
+                    <button type="button" class="btn btn-primary btn-block apply-mobile" id="filtrarButton">Ver resultados</button>
+                </form>
+            </aside>
+
+            <section class="results" aria-labelledby="resultsTitle">
+                <div class="results-bar">
+                    <div class="chips" role="tablist" aria-label="Tipo de anúncio">
+                        <button type="button" class="chip is-active" data-type="" role="tab" aria-selected="true">Todos</button>
+                        <button type="button" class="chip" data-type="venda" role="tab" aria-selected="false"><span data-icon="tag"></span>À venda</button>
+                        <button type="button" class="chip chip-donation" data-type="doacao" role="tab" aria-selected="false"><span data-icon="heart"></span>Doações</button>
+                    </div>
+                    <div class="results-tools">
+                        <button type="button" class="btn btn-secondary btn-sm open-filters" id="openFilters"><span data-icon="filter"></span>Filtros<span class="filter-count" id="filterCount"></span></button>
+                        <label for="ordenar" class="sr-only">Ordenar por</label>
+                        <select id="ordenar" class="select sort-select">
+                            <option value="validade">Vence primeiro</option>
+                            <option value="menorPreco">Menor preço</option>
+                            <option value="maiorPreco">Maior preço</option>
+                            <option value="recentes">Mais recentes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h2 id="resultsTitle" class="results-title"><span id="resultsCount">0</span> alimentos encontrados</h2>
+
+                <div class="produtos-container product-grid" aria-live="polite"></div>
+            </section>
+        </div>
+        <div class="filters-backdrop" id="filtersBackdrop" hidden></div>
+    </main>
+
+    <script src="../shared/app.js"></script>
+    <script src="../shared/layout.js"></script>
+    <script src="paginaInicial.js"></script>
+</body>
+</html>

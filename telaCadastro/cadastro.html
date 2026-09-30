@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar conta · FoodLoop</title>
+    <meta name="theme-color" content="#2f6f1f">
+    <link rel="icon" type="image/png" href="../fotos/favicon.png">
+    <link rel="stylesheet" href="../shared/style.css">
+    <link rel="stylesheet" href="../shared/auth.css">
+</head>
+<body>
+    <main class="auth">
+        <section class="auth-hero" aria-label="Sobre o FoodLoop">
+            <a class="brand" href="../telaLogin/index.html">
+                <img src="../fotos/logo-mark.png" alt="">
+                <span>Food<b>Loop</b></span>
+            </a>
+
+            <div class="hero-copy">
+                <span class="eyebrow"><span data-icon="sparkles"></span>Cadastro gratuito</span>
+                <h1>Faça parte do <em>ciclo</em> do alimento.</h1>
+                <p class="lead">Em poucos minutos você já pode anunciar, doar ou encontrar alimentos embalados na sua cidade.</p>
+
+                <ul class="benefits">
+                    <li>
+                        <span class="ic"><span data-icon="user"></span></span>
+                        <div><strong>Pessoa física</strong><span>Doe o que sobrou da despensa ou compre mais barato.</span></div>
+                    </li>
+                    <li>
+                        <span class="ic"><span data-icon="store"></span></span>
+                        <div><strong>Empresa</strong><span>Mercados e restaurantes dão destino ao estoque perto do vencimento.</span></div>
+                    </li>
+                </ul>
+            </div>
+
+            <p class="hero-foot">Protótipo acadêmico · Os dados ficam salvos apenas neste navegador.</p>
+        </section>
+
+        <section class="auth-panel">
+            <div class="auth-card wide">
+                <div class="mobile-brand">
+                    <img src="../fotos/logo-mark.png" alt="">
+                    <strong>Food<b>Loop</b></strong>
+                </div>
+
+                <h2>Crie sua conta</h2>
+                <p class="sub">Leva menos de 2 minutos.</p>
+
+                <form id="registerForm" novalidate>
+                    <div class="field">
+                        <span class="label" id="accountTypeLabel">Você é</span>
+                        <div class="segmented" role="radiogroup" aria-labelledby="accountTypeLabel">
+                            <input type="radio" name="accountType" id="typePf" value="pf" checked>
+                            <label for="typePf"><span data-icon="user"></span>Pessoa física</label>
+                            <input type="radio" name="accountType" id="typePj" value="pj">
+                            <label for="typePj"><span data-icon="building"></span>Empresa</label>
+                        </div>
+                    </div>
+
+                    <div class="form-grid" style="margin-top:16px">
+                        <div class="field span-2">
+                            <label for="fullName" id="fullNameLabel">Nome completo</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Como você se chama?" autocomplete="name" required>
+                        </div>
+
+                        <div class="field" id="documentField">
+                            <label for="cpfCnpj" id="documentLabel">CPF</label>
+                            <input type="text" id="cpfCnpj" name="cpfCnpj" placeholder="000.000.000-00" inputmode="numeric" required>
+                        </div>
+                        <div class="field" id="birthdateField">
+                            <label for="birthdate">Data de nascimento</label>
+                            <input type="date" id="birthdate" name="birthdate" autocomplete="bday">
+                        </div>
+
+                        <div class="field">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="voce@email.com" autocomplete="email" required>
+                        </div>
+                        <div class="field">
+                            <label for="phone">Telefone (com DDD)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="numeric" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="city">Cidade</label>
+                            <input type="text" id="city" name="city" placeholder="Sua cidade" autocomplete="address-level2" required>
+                        </div>
+                        <div class="field">
+                            <label for="state">Estado</label>
+                            <select id="state" name="state" autocomplete="address-level1" required></select>
+                        </div>
+
+                        <div class="field">
+                            <label for="password">Senha</label>
+                            <div class="password-wrap">
+                                <input type="password" id="password" name="password" placeholder="Mín. 6 caracteres" autocomplete="new-password" minlength="6" required>
+                                <button type="button" class="password-toggle" aria-label="Mostrar senha" aria-pressed="false">Mostrar</button>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="confirmPassword">Confirme a senha</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repita a senha" autocomplete="new-password" minlength="6" required>
+                        </div>
+                    </div>
+
+                    <p id="formMessage" class="form-message" role="alert"></p>
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Criar conta</button>
+                </form>
+
+                <p class="switch">Já tem conta? <a href="../telaLogin/index.html">Entrar</a></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="../shared/app.js"></script>
+    <script src="../shared/layout.js"></script>
+    <script src="cadastro.js"></script>
+</body>
+</html>

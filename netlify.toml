@@ -1,0 +1,4 @@
+[[redirects]]
+from = "/"
+to = "/telaLogin/index.html"
+status = 302

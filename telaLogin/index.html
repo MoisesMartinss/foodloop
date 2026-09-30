@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar · FoodLoop</title>
+    <meta name="description" content="FoodLoop: compre, venda e doe alimentos embalados perto de você e ajude a reduzir o desperdício.">
+    <meta name="theme-color" content="#2f6f1f">
+    <link rel="icon" type="image/png" href="../fotos/favicon.png">
+    <link rel="stylesheet" href="../shared/style.css">
+    <link rel="stylesheet" href="../shared/auth.css">
+</head>
+<body>
+    <main class="auth">
+        <section class="auth-hero" aria-label="Sobre o FoodLoop">
+            <a class="brand" href="index.html">
+                <img src="../fotos/logo-mark.png" alt="">
+                <span>Food<b>Loop</b></span>
+            </a>
+
+            <div class="hero-copy">
+                <span class="eyebrow"><span data-icon="leaf"></span>Contra o desperdício de alimentos</span>
+                <h1>Comida boa não vai para o lixo. Vai para <em>outra mesa</em>.</h1>
+                <p class="lead">Pessoas e empresas vendendo ou doando alimentos embalados perto de você.</p>
+
+                <ul class="benefits">
+                    <li>
+                        <span class="ic"><span data-icon="tag"></span></span>
+                        <div><strong>Economize</strong><span>Produtos perto da validade com preço justo.</span></div>
+                    </li>
+                    <li>
+                        <span class="ic"><span data-icon="heart"></span></span>
+                        <div><strong>Doe ou receba</strong><span>Sobrou? Anuncie como doação em poucos cliques.</span></div>
+                    </li>
+                    <li>
+                        <span class="ic"><span data-icon="building"></span></span>
+                        <div><strong>Para pessoas e empresas</strong><span>Mercados, restaurantes e famílias no mesmo lugar.</span></div>
+                    </li>
+                </ul>
+            </div>
+
+            <p class="hero-foot">Protótipo acadêmico · Os dados ficam salvos apenas neste navegador.</p>
+        </section>
+
+        <section class="auth-panel">
+            <div class="auth-card">
+                <div class="mobile-brand">
+                    <img src="../fotos/logo-mark.png" alt="">
+                    <strong>Food<b>Loop</b></strong>
+                    <span>Venda e doação de alimentos embalados</span>
+                </div>
+
+                <h2>Que bom te ver!</h2>
+                <p class="sub">Entre para ver os alimentos disponíveis perto de você.</p>
+
+                <form id="loginForm" novalidate>
+                    <div class="field">
+                        <label for="email">E-mail</label>
+                        <div class="input-icon">
+                            <span data-icon="mail"></span>
+                            <input type="email" id="email" placeholder="voce@email.com" autocomplete="email" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="password">Senha</label>
+                        <div class="password-wrap input-icon">
+                            <span data-icon="lock"></span>
+                            <input type="password" id="password" placeholder="Sua senha" autocomplete="current-password" required>
+                            <button type="button" class="password-toggle" aria-label="Mostrar senha" aria-pressed="false">Mostrar</button>
+                        </div>
+                    </div>
+
+                    <p id="error-message" class="form-message error" role="alert"></p>
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
+                </form>
+
+                <p class="switch">Ainda não tem conta? <a href="../telaCadastro/cadastro.html">Cadastre-se grátis</a></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="../shared/app.js"></script>
+    <script src="../shared/layout.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

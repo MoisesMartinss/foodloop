@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho · FoodLoop</title>
+    <meta name="theme-color" content="#2f6f1f">
+    <link rel="icon" type="image/png" href="../fotos/favicon.png">
+    <link rel="stylesheet" href="../shared/style.css">
+    <link rel="stylesheet" href="carrinhoCompra.css">
+</head>
+<body>
+    <main class="page">
+        <div class="container">
+            <a class="back-link" href="../paginaInicial/paginaInicial.html"><span data-icon="arrowLeft"></span>Continuar explorando</a>
+            <div class="page-head">
+                <h1>Seu carrinho</h1>
+                <p id="cartSubtitle">Revise os itens antes de finalizar.</p>
+            </div>
+
+            <div class="cart-layout" id="cartLayout">
+                <section class="cart-items" id="carrinhoItems" aria-label="Itens do carrinho"></section>
+
+                <aside class="summary card" aria-labelledby="summaryTitle">
+                    <h2 id="summaryTitle">Resumo</h2>
+                    <dl class="summary-lines">
+                        <div><dt>Itens</dt><dd id="summaryCount">0</dd></div>
+                        <div><dt>Produtos à venda</dt><dd id="summarySale">R$ 0,00</dd></div>
+                        <div class="donation-line"><dt>Doações</dt><dd id="summaryDonation">Grátis</dd></div>
+                    </dl>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <strong id="total">R$ 0,00</strong>
+                    </div>
+                    <button id="checkoutButton" type="button" class="btn btn-primary btn-lg btn-block">Finalizar pedido<span data-icon="arrowRight"></span></button>
+                    <p class="impact" id="impactNote"><span data-icon="leaf"></span><span>Cada item aqui é um alimento a menos no lixo.</span></p>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <script src="../shared/app.js"></script>
+    <script src="../shared/layout.js"></script>
+    <script src="carrinhoCompra.js"></script>
+</body>
+</html>

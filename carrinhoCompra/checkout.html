@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar pedido · FoodLoop</title>
+    <meta name="theme-color" content="#2f6f1f">
+    <link rel="icon" type="image/png" href="../fotos/favicon.png">
+    <link rel="stylesheet" href="../shared/style.css">
+    <link rel="stylesheet" href="carrinhoCompra.css">
+</head>
+<body>
+    <main class="page">
+        <div class="container checkout-container">
+            <div id="checkoutFlow">
+                <a class="back-link" href="carrinhoCompra.html"><span data-icon="arrowLeft"></span>Voltar ao carrinho</a>
+                <div class="page-head">
+                    <h1>Finalizar pedido</h1>
+                    <p>Só mais um passo para esse alimento chegar a uma nova mesa.</p>
+                </div>
+
+                <div class="cart-layout">
+                    <form id="checkoutForm" class="checkout-form" novalidate>
+                        <section class="card">
+                            <h2><span data-icon="pin"></span>Entrega ou retirada</h2>
+                            <div class="field">
+                                <label for="address">Endereço</label>
+                                <textarea id="address" rows="3" placeholder="Rua, número, bairro e um ponto de referência" required></textarea>
+                                <span class="hint">Para itens com retirada, o anunciante combina o local com você por mensagem.</span>
+                            </div>
+                        </section>
+
+                        <section class="card" id="paymentSection">
+                            <h2><span data-icon="wallet"></span>Forma de pagamento</h2>
+                            <div class="pay-options" role="radiogroup" aria-label="Forma de pagamento">
+                                <div class="pay-option">
+                                    <input type="radio" name="paymentMethod" id="payPix" value="Pix">
+                                    <label for="payPix"><span data-icon="sparkles"></span>Pix</label>
+                                </div>
+                                <div class="pay-option">
+                                    <input type="radio" name="paymentMethod" id="payCard" value="Cartão na entrega">
+                                    <label for="payCard"><span data-icon="wallet"></span>Cartão na entrega</label>
+                                </div>
+                                <div class="pay-option">
+                                    <input type="radio" name="paymentMethod" id="payCash" value="Dinheiro">
+                                    <label for="payCash"><span data-icon="tag"></span>Dinheiro</label>
+                                </div>
+                            </div>
+                        </section>
+
+                        <p class="donation-note" id="donationNote" hidden><span data-icon="heart"></span><span>Seu pedido tem apenas doações, então não há pagamento. Combine a entrega ou retirada com o doador.</span></p>
+
+                        <p id="checkoutMessage" class="form-message error" role="alert"></p>
+                    </form>
+
+                    <aside class="summary card" id="orderSummary" aria-labelledby="summaryTitle">
+                        <h2 id="summaryTitle">Resumo do pedido</h2>
+                        <div id="checkoutItems"></div>
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <strong id="checkoutTotal">R$ 0,00</strong>
+                        </div>
+                        <button type="submit" form="checkoutForm" id="confirmOrderButton" class="btn btn-primary btn-lg btn-block"><span data-icon="check"></span><span class="txt">Confirmar pedido</span></button>
+                        <p class="impact"><span data-icon="leaf"></span><span>Você está ajudando a reduzir o desperdício de alimentos.</span></p>
+                    </aside>
+                </div>
+            </div>
+
+            <section id="orderSuccess" class="card order-success" hidden>
+                <div class="success-ic"><span data-icon="check"></span></div>
+                <h1>Pedido confirmado!</h1>
+                <p class="muted">O anunciante vai entrar em contato para combinar a entrega ou a retirada.</p>
+                <span class="order-code">Nº <span id="orderId"></span></span>
+                <div class="actions">
+                    <a class="btn btn-secondary" href="../perfilCliente/perfilCliente.html#pedidos">Ver meus pedidos</a>
+                    <a class="btn btn-primary" href="../paginaInicial/paginaInicial.html">Voltar à vitrine</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../shared/app.js"></script>
+    <script src="../shared/layout.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>

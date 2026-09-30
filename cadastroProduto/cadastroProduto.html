@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anunciar alimento · FoodLoop</title>
+    <meta name="theme-color" content="#2f6f1f">
+    <link rel="icon" type="image/png" href="../fotos/favicon.png">
+    <link rel="stylesheet" href="../shared/style.css">
+    <link rel="stylesheet" href="cadastroProduto.css">
+</head>
+<body>
+    <main class="page">
+        <div class="container">
+            <a class="back-link" href="../paginaInicial/paginaInicial.html"><span data-icon="arrowLeft"></span>Voltar para a vitrine</a>
+            <div class="page-head">
+                <h1>Anunciar um alimento</h1>
+                <p>Venda ou doe alimentos embalados e dentro da validade.</p>
+            </div>
+
+            <div class="announce-layout">
+                <form id="cadastrarProdutoForm" class="announce-form" novalidate>
+                    <section class="card form-section">
+                        <h2><span class="step">1</span>Tipo de anúncio</h2>
+                        <div class="segmented segmented-lg" id="tipoGroup" role="radiogroup" aria-label="Tipo de anúncio">
+                            <input type="radio" name="tipo" id="tipoVenda" value="venda" checked>
+                            <label for="tipoVenda"><span data-icon="tag"></span>Vender</label>
+                            <input type="radio" name="tipo" id="tipoDoacao" value="doacao">
+                            <label for="tipoDoacao" class="donation"><span data-icon="heart"></span>Doar</label>
+                        </div>
+                        <p class="hint type-hint" id="tipoHint">Defina um preço justo — produtos perto da validade costumam sair mais rápido com desconto.</p>
+                    </section>
+
+                    <section class="card form-section">
+                        <h2><span class="step">2</span>Foto</h2>
+                        <label class="dropzone" id="dropzone" for="foto">
+                            <input type="file" id="foto" name="foto" accept="image/*" class="sr-only">
+                            <img id="fotoPreview" alt="Pré-visualização da foto" hidden>
+                            <span class="dz-empty" id="dzEmpty">
+                                <span class="dz-ic"><span data-icon="upload"></span></span>
+                                <strong>Clique para escolher uma foto</strong>
+                                <span class="hint">ou arraste a imagem até aqui · JPG ou PNG até 1 MB</span>
+                            </span>
+                        </label>
+                        <div class="file-row">
+                            <span id="file-name" class="file-name">Nenhum arquivo selecionado</span>
+                            <button type="button" class="btn btn-danger-ghost btn-sm" id="removeFoto" hidden><span data-icon="trash"></span>Remover</button>
+                        </div>
+                    </section>
+
+                    <section class="card form-section">
+                        <h2><span class="step">3</span>Sobre o alimento</h2>
+                        <div class="form-grid">
+                            <div class="field span-2">
+                                <label for="nome">Nome do alimento</label>
+                                <input type="text" id="nome" name="nome" placeholder="Ex.: Arroz integral 1kg" maxlength="60" required>
+                            </div>
+                            <div class="field">
+                                <label for="marca">Marca</label>
+                                <input type="text" id="marca" name="marca" placeholder="Ex.: Marca A" maxlength="40" required>
+                            </div>
+                            <div class="field">
+                                <label for="validade">Data de validade</label>
+                                <input type="date" id="validade" name="validade" required>
+                            </div>
+                            <div class="field span-2" id="precoField">
+                                <label for="preco">Preço por unidade</label>
+                                <div class="input-prefix">
+                                    <span>R$</span>
+                                    <input type="number" id="preco" name="preco" step="0.01" min="0.01" placeholder="0,00" inputmode="decimal" required>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="card form-section">
+                        <h2><span class="step">4</span>Local e entrega</h2>
+                        <div class="form-grid">
+                            <div class="field">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" id="cidade" name="cidade" required>
+                            </div>
+                            <div class="field">
+                                <label for="estado">Estado</label>
+                                <select id="estado" name="estado" required></select>
+                            </div>
+                            <div class="field span-2">
+                                <span class="label" id="deliveryLabel">Como a pessoa recebe?</span>
+                                <div class="segmented" role="radiogroup" aria-labelledby="deliveryLabel">
+                                    <input type="radio" name="delivery" id="deliverySim" value="sim" checked>
+                                    <label for="deliverySim"><span data-icon="truck"></span>Eu entrego</label>
+                                    <input type="radio" name="delivery" id="deliveryNao" value="não">
+                                    <label for="deliveryNao"><span data-icon="store"></span>Retirada</label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <p id="formMessage" class="form-message" role="alert"></p>
+
+                    <div class="form-actions">
+                        <a class="btn btn-secondary" href="../paginaInicial/paginaInicial.html" id="voltarButton">Cancelar</a>
+                        <button type="submit" class="btn btn-primary btn-lg" id="submitButton"><span data-icon="check"></span><span class="txt">Publicar anúncio</span></button>
+                    </div>
+                </form>
+
+                <aside class="preview" aria-label="Pré-visualização do anúncio">
+                    <p class="preview-title"><span data-icon="sparkles"></span>Assim seu anúncio vai aparecer</p>
+                    <div id="previewCard"></div>
+                    <ul class="tips">
+                        <li><span data-icon="check"></span>Use uma foto nítida da embalagem.</li>
+                        <li><span data-icon="check"></span>Confira se a embalagem está lacrada.</li>
+                        <li><span data-icon="check"></span>Não anuncie produtos vencidos.</li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <script src="../shared/app.js"></script>
+    <script src="../shared/layout.js"></script>
+    <script src="cadastroProduto.js"></script>
+</body>
+</html>
